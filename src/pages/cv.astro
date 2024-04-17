@@ -23,36 +23,21 @@ const gitVersion = exec("git --version", (e, out, err) => {
     }
 });
 
-console.log("Trying to pull typst");
-
-let exit = null;
-const gitPull = exec("git -C node_modules/git/typst pull", (e, out, err) => {
+console.log("Trying to clone typst");
+const gitClone = await exec("git clone https://github.com/pawarherschel/typst.git node_modules/git/typst", (e, out, err) => {
     if (e !== null) {
-        console.error(`git pull exception: ${e}`);
-        exit = e;
+        console.error(`git clone exception: ${e}`);
     }
     if (err !== "") {
-        console.log(`git pull log: ${out}`);
+        console.log(`git clone log: ${out}`);
     }
     if (err !== "") {
-        console.error(`git pull error: ${err}`);
+        console.error(`git clone error: ${err}`);
     }
 });
-if (exit != null){
-    console.log("Trying to clone typst");
-    const gitClone = exec("git clone https://github.com/pawarherschel/typst.git node_modules/git/typst", (e, out, err) => {
-        if (e !== null) {
-            console.error(`git clone exception: ${e}`);
-        }
-        if (err !== "") {
-            console.log(`git clone log: ${out}`);
-        }
-        if (err !== "") {
-            console.error(`git clone error: ${err}`);
-        }
-    });
-}
-// typst compile ./cv.typ ./output/CV.pdf --font-path ./src/fonts/
+
+
+
 typst.compile("node_modules/git/typst/cv.typ", "node_modules/git/typst/output/cv.svg", {
     fontPath: "node_modules/git/typst/src/fonts/",
 }).then(() => {
