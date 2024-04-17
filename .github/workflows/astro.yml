@@ -61,7 +61,7 @@ jobs:
         uses: withastro/action@v2.0.0
         with:
           # You may specify your preferred package manager (one of `npm | yarn | pnpm | bun` and an optional `@<version>` tag). Otherwise, the package manager will be automatically detected.
-          package-manager: pnpm
+          # package-manager: pnpm
       # - name: Build with Astro
       #   run: |
       #     ${{ steps.detect-package-manager.outputs.runner }} astro build \
