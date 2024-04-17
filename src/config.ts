@@ -10,7 +10,7 @@ export const siteConfig: SiteConfig = {
   title: 'Sakura Kat Systems',
   subtitle: 'Herschel Pravin Pawar\'s Personal Site',
   lang: 'en',
-  themeHue: 250,
+  themeHue: 330,
   banner: {
     enable: true,
     src: 'assets/images/banner.svg.png',
