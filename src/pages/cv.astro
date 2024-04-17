@@ -5,58 +5,70 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
 import {i18n} from "../i18n/translation";
 import I18nKey from "../i18n/i18nKey";
 
-import {exec} from "child_process";
+import {exec, spawn, spawnSync} from "child_process";
 
 import * as typst from "typst";
 import * as fs from "node:fs";
 import {DOMParser} from "xmldom";
+import * as console from "node:console";
 
-const gitVersion = exec("git --version", (e, out, err) => {
-    if (e !== null) {
-        console.error(`git version exception: ${e}`);
-    }
-    if (err !== "") {
-        console.log(`git version log: ${out}`);
-    }
-    if (err !== "") {
-        console.error(`git version error: ${err}`);
-    }
-});
+// const gitVersion = exec("git --version", (e, out, err) => {
+//     if (e !== null) {
+//         console.error(`git version exception: ${e}`);
+//     }
+//     if (err !== "") {
+//         console.log(`git version log: ${out}`);
+//     }
+//     if (err !== "") {
+//         console.error(`git version error: ${err}`);
+//     }
+// });
 
-console.log("Trying to clone typst");
-const gitClone = await exec("git clone https://github.com/pawarherschel/typst.git node_modules/git/typst", (e, out, err) => {
-    if (e !== null) {
-        console.error(`git clone exception: ${e}`);
-    }
-    if (err !== "") {
-        console.log(`git clone log: ${out}`);
-    }
-    if (err !== "") {
-        console.error(`git clone error: ${err}`);
-    }
-});
-
-
-
-typst.compile("node_modules/git/typst/cv.typ", "node_modules/git/typst/output/cv.svg", {
-    fontPath: "node_modules/git/typst/src/fonts/",
-}).then(() => {
-    console.log("compiled");
-}).catch((err) => {
-    console.error(`compile err: ${err}`);
-});
-
-const svgString = fs.readFileSync("node_modules/git/typst/output/cv.svg", "utf-8");
-
-while (svgString === "") {
-    console.error("svg is empty");
+const gitVersion = spawnSync("git", ["--version"]);
+if (gitVersion.error !== undefined) {
+    console.error(`git version exception: ${gitVersion.error}`);
+    console.error(`git version error: ${gitVersion.stderr}`);
+    console.log(`git version log: ${gitVersion.stdout}`);
+} else {
+    console.log(`git version log: ${gitVersion.stdout}`);
 }
 
-const parser = new DOMParser();
+let svgElement = null;
 
-const dom = parser.parseFromString(svgString, "image/svg+xml");
+console.log("Trying to clone typst");
+const gitClone = spawnSync("git", ["clone", "https://github.com/pawarherschel/typst.git", "node_modules/git/typst"]);
+if (gitClone.error !== undefined) {
+    console.error(`git clone exception: ${gitClone.error}`);
+    console.error(`git clone error: ${gitClone.stderr}`);
+    console.log(`git clone log: ${gitClone.stdout}`);
+} else {
+    console.log("Cloned typst");
 
-const svgElement = dom.documentElement;
+    const { status, signal, error, stdout, stderr } = gitClone;
+    console.log(`git clone status: ${status}`);
+    console.log(`git clone signal: ${signal}`);
+    console.log(`git clone error: ${error}`);
+    console.log(`git clone log: ${stdout}`);
+    console.error(`git clone error: ${stderr}`);
+
+    typst.compile("node_modules/git/typst/cv.typ", "node_modules/git/typst/output/cv.svg", {
+        fontPath: "node_modules/git/typst/src/fonts/",
+    }).then(() => {
+        const svgString = fs.readFileSync("node_modules/git/typst/output/cv.svg", "utf-8");
+
+        while (svgString === "") {
+            console.error("svg is empty");
+        }
+
+        const parser = new DOMParser();
+
+        const dom = parser.parseFromString(svgString, "image/svg+xml");
+
+        svgElement = dom.documentElement;
+    }).catch((err) => {
+        console.error(`compile err: ${err}`);
+    });
+}
 
 ---
 
