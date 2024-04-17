@@ -45,38 +45,40 @@ jobs:
             exit 0
       - name: Setup pnpm
         id: setup-pnpm
-        run: npm install pnpm
-      - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: pnpm/action-setup@v3.0.0
         with:
-          node-version: "20"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
-          cache-dependency-path: ${{ env.BUILD_PATH }}/${{ steps.detect-package-manager.outputs.lockfile }}
+          # Where to store pnpm files
+          # dest: # optional, default is ~/setup-pnpm
+          # When set to true, @pnpm/exe, which is a Node.js bundled package, will be installed, enabling using pnpm without Node.js.
+          standalone: true
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-        working-directory: ${{ env.BUILD_PATH }}
-      - name: Build with Astro
-        run: |
-          ${{ steps.detect-package-manager.outputs.runner }} astro build \
-            --site "${{ steps.pages.outputs.origin }}" \
-            --base "${{ steps.pages.outputs.base_path }}"
-        working-directory: ${{ env.BUILD_PATH }}
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Astro Deploy
+        # You may pin to the exact commit or the version.
+        # uses: withastro/action@acfe56dffc635abfb9506c77d51ce097030360d1
+        uses: withastro/action@v2.0.0
         with:
-          path: ${{ env.BUILD_PATH }}/dist
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          # You may specify your preferred package manager (one of `npm | yarn | pnpm | bun` and an optional `@<version>` tag). Otherwise, the package manager will be automatically detected.
+          package-manager: pnpm
+      # - name: Build with Astro
+      #   run: |
+      #     ${{ steps.detect-package-manager.outputs.runner }} astro build \
+      #       --site "${{ steps.pages.outputs.origin }}" \
+      #       --base "${{ steps.pages.outputs.base_path }}"
+      #   working-directory: ${{ env.BUILD_PATH }}
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     path: ${{ env.BUILD_PATH }}/dist
+  # deploy:
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   name: Deploy
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4
