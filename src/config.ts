@@ -22,6 +22,7 @@ export const navBarConfig: NavBarConfig = {
     LinkPreset.Home,
     LinkPreset.Archive,
     LinkPreset.About,
+    LinkPreset.CV,
     {
       name: 'GitHub',
       url: 'https://github.com/pawarherschel',
