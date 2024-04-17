@@ -2,7 +2,7 @@
 title: Making this website
 published: 2024-04-17
 description: 'My experience with customizing the website to add the cv page. I talk about the various issues I encountered, what ultimately worked, and the annoyances of using TypeScript coming from rust.'
-image: ''
+image: 'https://b2.sakurakat.systems/file/kats-sharex/chrome_ZjsBREKD4c.png'
 tags: [ 'Programming', 'TypeScript', 'Rust', 'async', 'git', 'rant', 'meta', ]
 category: 'Programming'
 draft: true 
