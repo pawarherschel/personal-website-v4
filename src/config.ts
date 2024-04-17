@@ -36,9 +36,29 @@ export const profileConfig: ProfileConfig = {
   bio: 'Enthusiastic learner, curious about everything. Looking forward to work on projects that make a difference.',
   links: [
     {
+      name: 'Email',
+      icon: 'fa6-solid:envelope',
+      url: 'mailto:pawarherschel@sakurakat.systems',
+    },
+    {
+      name: 'Phone',
+      icon: 'fa6-solid:phone',
+      url: 'tel:+919833213306',
+    },
+    {
+      name: 'LinkedIn',
+      icon: 'fa6-brands:linkedin',
+      url: 'https://www.linkedin.com/in/pawarherschel/',
+    },
+    {
       name: 'GitHub',
       icon: 'fa6-brands:github',
       url: 'https://github.com/pawarherschel',
+    },
+    {
+        name: 'ORCID',
+        icon: 'fa6-brands:orcid',
+        url: 'https://orcid.org/0009-0003-3218-801X',
     },
   ],
 }
