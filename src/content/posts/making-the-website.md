@@ -5,7 +5,7 @@ description: 'My experience with customizing the website to add the cv page. I t
 image: 'https://b2.sakurakat.systems/file/kats-sharex/chrome_ZjsBREKD4c.png'
 tags: [ 'Programming', 'TypeScript', 'Rust', 'async', 'git', 'rant', 'meta', ]
 category: 'Programming'
-draft: true 
+draft: false
 ---
 
 This is the first post of the website (and it’s going to be a rant lol).
