@@ -12,8 +12,8 @@ export const siteConfig: SiteConfig = {
   lang: 'en',
   themeHue: 250,
   banner: {
-    enable: false,
-    src: 'assets/images/banner.svg',
+    enable: true,
+    src: 'assets/images/banner.svg.png',
   },
 }
 
