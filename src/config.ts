@@ -44,7 +44,7 @@ export const profileConfig: ProfileConfig = {
     {
       name: 'Phone',
       icon: 'fa6-solid:phone',
-      url: 'tel:+919833213306',
+      url: 'tel:+918310783472',
     },
     {
       name: 'LinkedIn',
