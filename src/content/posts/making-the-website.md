@@ -1,8 +1,8 @@
 ---
-title: Making this website
+title: Making the website
 published: 2024-04-17
 description: 'My experience with customizing the website to add the cv page. I talk about the various issues I encountered, what ultimately worked, and the annoyances of using TypeScript coming from rust.'
-image: 'https://b2.sakurakat.systems/file/kats-sharex/chrome_ZjsBREKD4c.png'
+image: 'https://r2.sakurakat.systems/making-the-website-banner.png'
 tags: [ 'Programming', 'TypeScript', 'Rust', 'async', 'git', 'rant', 'meta', ]
 category: 'Programming'
 draft: false
