@@ -5,38 +5,33 @@ description: 'My experience with customizing the website to add the cv page. I t
 image: 'https://r2.sakurakat.systems/making-the-website-banner.png'
 tags: [ 'Programming', 'TypeScript', 'Rust', 'async', 'git', 'rant', 'meta', ]
 category: 'Programming'
-categories: [ 'programming', 'rant' ]
 draft: false
 ---
 
+
 This is the first post of the website (and it's going to be a rant lol).
+
+---
 
 # The rant
 
-First, credits where credits are due.
-The template I used is [Fuwari](https://github.com/saicaca/fuwari).
 I've tried many times to make a website from scratch, but I always ended up abandoning it.
-There were multiple reasons for that, but the main one was that TypeScript is just... bad.
-Coming from Rust, I just couldn't deal with the type system being
-so bad.
-Aside from the oddities of the language, I also got bored from writing HTML and CSS/Tailwind.
-I wanted it to
-look good, but it just wasn't worth the effort or even fun.
+[^1] [^2] [^3] [^4]
 
-Writing Rust might be a pain in the ass,
+Writing <span>Rust</span> might be a pain in the ass,
 but once it compiles,
 I can be pretty sure it will work as I intended it to.
-This wasn't the case for me while writing TypeScript.
+This wasn't the case for me while writing <span>TypeScript</span>.
 Some might call it a "skill issue," but I consider it a flaw in the language itself.
-I know that TypeScript != JavaScript/ECMAScript (what do people call it nowadays anyway?).
+I know that <span>TypeScript</span> <span>!=</span> <span>JavaScript</span>/ECMAScript (what do people call it nowadays
+anyway?).
 
 ## The "skill issue" and my experience
 
 I wanted to display my CV on the website,
 that was the main why I created the website.
-This blog is just a side
-product.
-I already spent a while "customizing" the [Typst](https://typst.app/) template.
+This blog is just a side product.
+I had already spent a while "customizing" the [Typst](https://typst.app/) template.
 Being a programmer, I wanted to
 make sure there's only one source of truth, in other words, the [repo](https://github.com/pawarherschel/typst) on my
 GitHub.
@@ -45,6 +40,7 @@ There were two problems so far, first I had to find a way to
 get the PDF, second I had to find a way to embed the PDF.
 I had a hunch that it should be possible since I've seen
 websites do it before.
+I just had to figure out _how_ to do it.
 
 ### Getting the PDF
 
@@ -94,8 +90,8 @@ So, I put console logs everywhere.
 I spent hours trying to debug why I was getting everything correct when printing to console, but in the HTML generated,
 the SVG was empty.
 So, I tried to remove async functions all together by trying to run them in a blocking manner similar
-to [tokio](https://github.com/tokio-rs/tokio)'
-s [`Runtime::block_on<F: Future>(&self, future: F) -> F::Output`](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.block_on).
+to tokio's [^5] `Runtime::block_on<F: Future>(&self, future: F) -> F::Output` [^6].
+
 But nothing I found worked remotely as I intended.
 I was searching for a unicorn all the while I kept getting empty SVGs.
 I found out that the variable I was using to store the SVG was undefined.
@@ -173,9 +169,10 @@ const dom = parser.parseFromString(svgString, "image/svg+xml");
 const svgElement = dom.documentElement;
 ```
 
-I miss the utility functions and standardized utility classes like `Option<T>` and `Result<O, E>` as well as marking
-variables as "intentionally unused."
+I miss the utility functions and standardized utility classes like `Option<T>` and `Result<O, E>`.
 But it is what it is.
+
+---
 
 # Afterword
 
@@ -190,5 +187,14 @@ There is an active [RFC](https://github.com/typst/typst/issues/721) where the la
 The next update I'd like to make is somehow querying the Typst document to extract out the components and rendering them
 with HTML.
 That way it would be less fragile, and it should load even faster.
-Since Typst is written in Rust, I might be able to get the AST if I use the Typst crate.
-However, I haven't done any research about the feasibility related to that + I still need to finish my research.  
+Since Typst is written in <span>Rust</span>, I might be able to get the AST if I use the Typst crate.
+However, I haven't done any research about the feasibility related to that + I still need to finish my research.
+
+---
+
+[^1]: [personal-website on GitHub](https://github.com/pawarherschel/personal-website)
+[^2]: [personal-website-v2 on GitHub](https://github.com/pawarherschel/personal-website-v2)
+[^3]: [personal-website-v3 on GitHub](https://github.com/pawarherschel/personal-website-v3)
+[^4]: [CyberKataclysm on GitHub](https://github.com/pawarherschel/CyberKataclysm)
+[^5]: [tokio on GitHub](https://github.com/tokio-rs/tokio)
+[^6]: [the `block_on` function on docs.rs](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.block_on)
