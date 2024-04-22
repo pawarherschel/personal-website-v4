@@ -16,7 +16,10 @@ This is the first post of the website (and it's going to be a rant lol).
 # The rant
 
 I've tried many times to make a website from scratch, but I always ended up abandoning it.
-[^1] [^2] [^3] [^4]
+[^personal-website-1]
+[^personal-website-2]
+[^personal-website-3]
+[^godot-game-as-website]
 
 Writing <span>Rust</span> might be a pain in the ass,
 but once it compiles,
@@ -90,7 +93,7 @@ So, I put console logs everywhere.
 I spent hours trying to debug why I was getting everything correct when printing to console, but in the HTML generated,
 the SVG was empty.
 So, I tried to remove async functions all together by trying to run them in a blocking manner similar
-to tokio's [^5] `Runtime::block_on<F: Future>(&self, future: F) -> F::Output` [^6].
+to tokio's [^tokio] `Runtime::block_on<F: Future>(&self, future: F) -> F::Output` [^block_on].
 
 But nothing I found worked remotely as I intended.
 I was searching for a unicorn all the while I kept getting empty SVGs.
@@ -191,10 +194,9 @@ Since Typst is written in <span>Rust</span>, I might be able to get the AST if I
 However, I haven't done any research about the feasibility related to that + I still need to finish my research.
 
 ---
-
-[^1]: [personal-website on GitHub](https://github.com/pawarherschel/personal-website)
-[^2]: [personal-website-v2 on GitHub](https://github.com/pawarherschel/personal-website-v2)
-[^3]: [personal-website-v3 on GitHub](https://github.com/pawarherschel/personal-website-v3)
-[^4]: [CyberKataclysm on GitHub](https://github.com/pawarherschel/CyberKataclysm)
-[^5]: [tokio on GitHub](https://github.com/tokio-rs/tokio)
-[^6]: [the `block_on` function on docs.rs](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.block_on)
+[^personal-website-1]: [personal-website on GitHub](https://github.com/pawarherschel/personal-website)
+[^personal-website-2]: [personal-website-v2 on GitHub](https://github.com/pawarherschel/personal-website-v2)
+[^personal-website-3]: [personal-website-v3 on GitHub](https://github.com/pawarherschel/personal-website-v3)
+[^godot-game-as-website]: [CyberKataclysm on GitHub](https://github.com/pawarherschel/CyberKataclysm)
+[^tokio]: [tokio on GitHub](https://github.com/tokio-rs/tokio)
+[^block_on]: [the `block_on` function on docs.rs](https://docs.rs/tokio/latest/tokio/runtime/struct.Runtime.html#method.block_on)
