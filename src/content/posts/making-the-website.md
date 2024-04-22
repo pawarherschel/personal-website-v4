@@ -11,8 +11,6 @@ draft: false
 
 This is the first post of the website (and it's going to be a rant lol).
 
-## Contents
-
 # The rant
 
 First, credits where credits are due.
