@@ -1,3 +1,4 @@
+import mdx from '@astrojs/mdx';
 import svelte from '@astrojs/svelte';
 import tailwind from '@astrojs/tailwind';
 import swup from '@swup/astro';
@@ -52,6 +53,7 @@ export default defineConfig({
       Image: false,
     }),
     svelte(),
+    mdx(),
   ],
   markdown: {
     remarkPlugins: [remarkMath, remarkReadingTime, smartypants, remarkGfm],
