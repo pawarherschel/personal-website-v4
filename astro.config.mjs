@@ -6,8 +6,10 @@ import icon from 'astro-icon';
 import {defineConfig} from 'astro/config';
 import Color from 'colorjs.io';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeCitation from 'rehype-citation';
 import rehypeKatex from 'rehype-katex';
 import rehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import smartypants from 'remark-smartypants';
 import {remarkReadingTime} from './src/plugins/remark-reading-time.mjs';
@@ -52,7 +54,7 @@ export default defineConfig({
     svelte(),
   ],
   markdown: {
-    remarkPlugins: [remarkMath, remarkReadingTime, smartypants],
+    remarkPlugins: [remarkMath, remarkReadingTime, smartypants, remarkGfm],
     rehypePlugins: [
       rehypeKatex,
       rehypeSlug,
@@ -77,6 +79,13 @@ export default defineConfig({
               },
             ],
           },
+        },
+      ],
+      [
+        rehypeCitation,
+        {
+          bibliography: 'bibliography.bib',
+          linkCitations: true,
         },
       ],
     ],
