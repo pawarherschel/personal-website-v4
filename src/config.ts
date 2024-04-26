@@ -3,17 +3,17 @@ import type {
   NavBarConfig,
   ProfileConfig,
   SiteConfig,
-} from "./types/config";
-import { LinkPreset } from "./types/config";
+} from './types/config';
+import { LinkPreset } from './types/config';
 
 export const siteConfig: SiteConfig = {
-  title: "Sakura Kat Systems",
+  title: 'Sakura Kat Systems',
   subtitle: "Herschel Pravin Pawar's Personal Site",
-  lang: "en",
+  lang: 'en',
   themeHue: 330,
   banner: {
     enable: true,
-    src: "https://r2.sakurakat.systems/website-banner.svg",
+    src: 'https://r2.sakurakat.systems/website-banner.svg',
   },
 };
 

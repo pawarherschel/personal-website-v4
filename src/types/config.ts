@@ -1,15 +1,15 @@
 export type SiteConfig = {
-  title: string
-  subtitle: string
+  title: string;
+  subtitle: string;
 
-  lang: string
+  lang: string;
 
-  themeHue: number
+  themeHue: number;
   banner: {
-    enable: boolean
-    src: string
-  }
-}
+    enable: boolean;
+    src: string;
+  };
+};
 
 export enum LinkPreset {
   Home = 0,
@@ -19,28 +19,28 @@ export enum LinkPreset {
 }
 
 export type NavBarLink = {
-  name: string
-  url: string
-  external?: boolean
-}
+  name: string;
+  url: string;
+  external?: boolean;
+};
 
 export type NavBarConfig = {
-  links: (NavBarLink | LinkPreset)[]
-}
+  links: (NavBarLink | LinkPreset)[];
+};
 
 export type ProfileConfig = {
-  avatar?: string
-  name: string
-  bio?: string
+  avatar?: string;
+  name: string;
+  bio?: string;
   links: {
-    name: string
-    url: string
-    icon: string
-  }[]
-}
+    name: string;
+    url: string;
+    icon: string;
+  }[];
+};
 
 export type LicenseConfig = {
-  enable: boolean
-  name: string
-  url: string
-}
+  enable: boolean;
+  name: string;
+  url: string;
+};

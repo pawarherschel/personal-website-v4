@@ -83,12 +83,9 @@ dependencies:
   typescript:
     specifier: ^5.4.5
     version: 5.4.5
-  typst:
-    specifier: 0.10.0-8
-    version: 0.10.0-8
-  xmldom:
-    specifier: ^0.6.0
-    version: 0.6.0
+  yaml:
+    specifier: ^2.4.1
+    version: 2.4.1
 
 devDependencies:
   '@astrojs/ts-plugin':
@@ -3095,41 +3092,6 @@ packages:
     requiresBuild: true
     dependencies:
       '@types/node': 20.12.4
-    dev: false
-    optional: true
-
-  /@typst-community/typst-darwin-arm64@0.10.0-8:
-    resolution: {integrity: sha512-y4aQzzBTcFYM8mbpOP6RpHFtsRN9wHBIPCJeP6i0XA75FqbeRhes7SLVX16Yck8BYy4Tfv8sW3dK2iZ1+USxJA==}
-    os: [darwin]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /@typst-community/typst-darwin-x64@0.10.0-8:
-    resolution: {integrity: sha512-IPkSawdzBQhXv23zqfNsgX/L8WdHSqRsytmBSx7AhWWVl9vDe4S73G0Epl8NlUTrx2rf/vjnp8ayh4vA8EAQVg==}
-    os: [darwin]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /@typst-community/typst-linux-arm64@0.10.0-8:
-    resolution: {integrity: sha512-XDBqA7TjJ0DtV1dvX8iYRIdE0QADl8D1EyBJQUaII+JOgDeRajVDZB58KNpY9eIgiL9lTw2nnybGsW3Frts4CQ==}
-    os: [linux]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /@typst-community/typst-linux-x64@0.10.0-8:
-    resolution: {integrity: sha512-HL2N92Xgao9slbW8pq1cu6SpCQ67ExLw7L0o/SKlHJ9ZkjtJlHJq8bRhOlHnenqU/tYyyJy73+nc0r+rQjX3RQ==}
-    os: [linux]
-    requiresBuild: true
-    dev: false
-    optional: true
-
-  /@typst-community/typst-win32-x64@0.10.0-8:
-    resolution: {integrity: sha512-qPMG+h8mqrKoq66vtT6bIJFUQ/xmRyVbnDIgcFw26ZucJzDak3s3b7LuiVgghZw1TJkGPzYO6Yzi47AWB146cA==}
-    os: [win32]
-    requiresBuild: true
     dev: false
     optional: true
 
@@ -9089,19 +9051,6 @@ packages:
     hasBin: true
     dev: false
 
-  /typst@0.10.0-8:
-    resolution: {integrity: sha512-/0ihD4XtkqTfxqIWCtpoqSIqrwKjnXsoVspo6hTGnplvRQgQyDkryu3EvPUY+g0mo2edCvCGMesMse8lX/I/iA==}
-    hasBin: true
-    dependencies:
-      execa: 8.0.1
-    optionalDependencies:
-      '@typst-community/typst-darwin-arm64': 0.10.0-8
-      '@typst-community/typst-darwin-x64': 0.10.0-8
-      '@typst-community/typst-linux-arm64': 0.10.0-8
-      '@typst-community/typst-linux-x64': 0.10.0-8
-      '@typst-community/typst-win32-x64': 0.10.0-8
-    dev: false
-
   /ufo@1.5.0:
     resolution: {integrity: sha512-c7SxU8XB0LTO7hALl6CcE1Q92ZrLzr1iE0IVIsUa9SlFfkn2B2p6YLO6dLxOj7qCWY98PB3Q3EZbN6bEu8p7jA==}
     dev: false
@@ -9608,11 +9557,6 @@ packages:
 
   /wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
-
-  /xmldom@0.6.0:
-    resolution: {integrity: sha512-iAcin401y58LckRZ0TkI4k0VSM1Qg0KGSc3i8rU+xrxe19A/BN1zHyVSJY7uoutVlaTSzYyk/v5AmkewAP7jtg==}
-    engines: {node: '>=10.0.0'}
-    dev: false
 
   /y18n@5.0.8:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}

@@ -39,8 +39,7 @@
     "svelte": "^4.2.12",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.4.5",
-    "typst": "0.10.0-8",
-    "xmldom": "^0.6.0"
+    "yaml": "^2.4.1"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.6.0",
