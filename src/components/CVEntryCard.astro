@@ -20,7 +20,7 @@ const className = Astro.props.class;
 
 const hasCover = logo !== '' && logo !== undefined;
 function srcToPublicPath(src: string) {
-  src = src.replace('src', 'src/assets');
+  src = src.replace('src', 'assets');
   console.log('src', src);
   return src;
 }
