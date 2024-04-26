@@ -9,7 +9,6 @@ import { exec } from 'node:child_process';
 import { access, readFile } from 'node:fs/promises';
 
 import * as fs from 'node:fs/promises';
-import { copyFile } from 'node:fs/promises';
 import * as util from 'node:util';
 import * as yaml from 'yaml';
 import CVEntryCard from '../components/CVEntryCard.astro';
@@ -51,21 +50,18 @@ if (await folderExists('node_modules/git/typst')) {
   }
 }
 
-const fromFolderPath = 'node_modules/git/typst/src/logos';
-const toFolderPath = 'src/assets/logos';
-if (!(await folderExists('src/assets'))) {
-  console.log('Creating assets folder')
-  await fs.mkdir('src/assets');
-}
-if (!(await folderExists(toFolderPath))) {
-  console.log('Creating logos folder')
-  await fs.mkdir(toFolderPath);
-}
-const files = await fs.readdir(fromFolderPath);
-for (const file of files) {
-  console.log(`Copying ${file} to ${toFolderPath}`)
-  await copyFile(`${fromFolderPath}/${file}`, `${toFolderPath}/${file}`);
-}
+// const fromFolderPath = 'node_modules/git/typst/src/logos';
+// const toFolderPath = 'src/assets/logos';
+// if (await folderExists(fromFolderPath)) {
+//   await fs.mkdir(toFolderPath, { recursive: true });
+//   const files = await fs.readdir(fromFolderPath);
+//   for (const file of files) {
+//     await copyFile(
+//       `${fromFolderPath}/${file}`,
+//       `${toFolderPath}/${file}`,
+//     );
+//   }
+// }
 
 const sourceOfTruth = await readFile(
   'node_modules/git/typst/SOT.yaml',

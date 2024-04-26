@@ -1,11 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
-import I18nKey from '../i18n/i18nKey';
-import { i18n } from '../i18n/translation';
 import type { CVEntry } from '../types/CVMetadata';
-import { getDir } from '../utils/url-utils';
 import CVEntryMetadata from './CVEntryMetadata.astro';
-import PostMetadata from './PostMeta.astro';
 import ImageWrapper from './misc/ImageWrapper.astro';
 
 export interface Props {
@@ -15,8 +11,11 @@ export interface Props {
 }
 
 const { cv_entry, style } = Astro.props;
-const { title, society, date, location, description, logo, tags } = cv_entry;
+const { title, society, date, location, description, tags } = cv_entry;
+let {logo} = cv_entry;
 const className = Astro.props.class;
+
+logo = undefined;
 
 const hasCover = logo !== '' && logo !== undefined;
 function srcToPublicPath(src: string) {
