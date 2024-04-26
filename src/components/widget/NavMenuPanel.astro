@@ -1,10 +1,10 @@
 ---
-import {NavBarLink} from "../../types/config";
-import {siteConfig} from "../../config";
-import {Icon} from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
+import { siteConfig } from '../../config';
+import type { NavBarLink } from '../../types/config';
 
 interface Props {
-    links: NavBarLink[],
+  links: NavBarLink[];
 }
 
 const links = Astro.props.links;
