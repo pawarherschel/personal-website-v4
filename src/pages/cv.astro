@@ -53,6 +53,9 @@ if (await folderExists('node_modules/git/typst')) {
 
 const fromFolderPath = 'node_modules/git/typst/src/logos';
 const toFolderPath = 'src/assets/logos';
+if (!(await folderExists('src/assets'))) {
+  await fs.mkdir('src/assets');
+}
 if (!(await folderExists(toFolderPath))) {
   await fs.mkdir(toFolderPath);
 }
@@ -84,40 +87,40 @@ const {
         <div class="card-base z-10 px-9 py-6 mb-6  relative w-full rounded-[var(--radius-large)] bg-[var(--card-bg)] ">
             <h1 class="text-2xl font-bold text-[var(--text-color)] mb-4">Projects</h1>
             <div class="transition flex flex-col rounded-[var(--radius-large)] bg-[var(--card-bg)] py-1 md:py-0 md:bg-transparent md:gap-4 mb-4">
-                {
-                    projects.map((project) =>
-                            <CVEntryCard
-                                    cv_entry={project}
-                            >
-                            </CVEntryCard>
-                    )
-                }
+              {
+                projects.map((project) =>
+                        <CVEntryCard
+                                cv_entry={project}
+                        >
+                        </CVEntryCard>
+                )
+              }
             </div>
         </div>
         <div class="card-base z-10 px-9 py-6 mb-6 relative w-full rounded-[var(--radius-large)] bg-[var(--card-bg)] ">
             <h1 class="text-2xl font-bold text-[var(--text-color)] mb-4">Publications</h1>
             <div class="transition flex flex-col rounded-[var(--radius-large)] bg-[var(--card-bg)] py-1 md:py-0 md:bg-transparent md:gap-4 mb-4">
-                {
-                    publications.map((publications) =>
-                            <CVEntryCard
-                                    cv_entry={publications}
-                            >
-                            </CVEntryCard>
-                    )
-                }
+              {
+                publications.map((publications) =>
+                        <CVEntryCard
+                                cv_entry={publications}
+                        >
+                        </CVEntryCard>
+                )
+              }
             </div>
         </div>
         <div class="card-base z-10 px-9 py-6 mb-6 relative w-full rounded-[var(--radius-large)] bg-[var(--card-bg)] ">
             <h1 class="text-2xl font-bold text-[var(--text-color)] mb-4">Education</h1>
             <div class="transition flex flex-col rounded-[var(--radius-large)] bg-[var(--card-bg)] py-1 md:py-0 md:bg-transparent md:gap-4 mb-4">
-                {
-                    education.map((education) =>
-                            <CVEntryCard
-                                    cv_entry={education}
-                            >
-                            </CVEntryCard>
-                    )
-                }
+              {
+                education.map((education) =>
+                        <CVEntryCard
+                                cv_entry={education}
+                        >
+                        </CVEntryCard>
+                )
+              }
             </div>
         </div>
     </div>
