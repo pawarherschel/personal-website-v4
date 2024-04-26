@@ -12,10 +12,10 @@ export interface Props {
 
 const { cv_entry, style } = Astro.props;
 const { title, society, date, location, description, tags } = cv_entry;
-let {logo} = cv_entry;
+// let {logo} = cv_entry;
 const className = Astro.props.class;
 
-logo = undefined;
+let logo = undefined;
 
 const hasCover = logo !== '' && logo !== undefined;
 function srcToPublicPath(src: string) {
